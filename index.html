@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahnarztpraxis Dr. Kellner — Göttingen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#faf8f5;--cream-dark:#f0ece4;--sand:#e8e0d4;--stone:#8c8278;--deep:#2c2420;--ink:#1a1614;--blue:#3a6b8a;--blue-light:#e8f0f5;--white:#ffffff;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',Arial,sans-serif;background:var(--cream);color:var(--ink);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 64px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,245,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand);}
+.nav-logo-main{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);letter-spacing:0.5px;}
+.nav-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--stone);text-transform:uppercase;}
+.nav-links{display:flex;gap:36px;list-style:none;}.nav-links a{font-size:13px;font-weight:400;color:var(--stone);text-decoration:none;}
+.nav-appt{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;border:1px solid var(--blue);padding:9px 22px;}
+.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;padding-top:72px;background:var(--cream);}
+.hero-left{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;}
+.hero-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--stone);text-transform:uppercase;margin-bottom:32px;display:flex;align-items:center;gap:16px;}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--stone);}
+.hero-h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(52px,6vw,84px);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:12px;letter-spacing:-0.5px;}
+.hero-h1 em{font-style:italic;color:var(--blue);}
+.hero-h1 strong{font-weight:600;}
+.hero-sub-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,3vw,36px);font-weight:300;font-style:italic;color:var(--stone);margin-bottom:40px;}
+.hero-desc{font-size:15px;font-weight:300;color:var(--stone);line-height:1.8;max-width:420px;margin-bottom:48px;}
+.btn-primary{font-size:13px;font-weight:500;letter-spacing:0.5px;background:var(--blue);color:var(--white);padding:14px 32px;text-decoration:none;display:inline-block;}
+.hero-right{background:var(--blue-light);position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.hero-right-circle{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);width:320px;height:320px;border-radius:50%;background:rgba(58,107,138,0.08);}
+.hero-right-circle2{position:absolute;top:50%;left:50%;transform:translate(-40%,-45%);width:220px;height:220px;border-radius:50%;background:rgba(58,107,138,0.08);}
+.hero-icon-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);font-size:80px;opacity:0.15;}
+.hero-info-panel{position:relative;z-index:2;background:var(--white);margin:32px;padding:32px;}
+.hip-item{padding:14px 0;border-bottom:1px solid var(--sand);display:flex;justify-content:space-between;align-items:baseline;}
+.hip-item:last-child{border-bottom:none;}
+.hip-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--stone);text-transform:uppercase;}
+.hip-val{font-size:14px;font-weight:400;color:var(--ink);}
+.leistungen{padding:96px 64px;background:var(--white);}
+.sec-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--stone);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
+.sec-eyebrow::before{content:'';width:40px;height:1px;background:var(--sand);}
+.sec-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(36px,4vw,56px);font-weight:300;color:var(--ink);line-height:1.1;letter-spacing:-0.3px;margin-bottom:64px;}
+.sec-title em{font-style:italic;color:var(--blue);}
+.leistungen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--sand);}
+.lcard{background:var(--white);padding:40px 32px;transition:background .3s;}
+.lcard:hover{background:var(--cream);}
+.lcard-num{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--sand);margin-bottom:24px;}
+.lcard-line{width:32px;height:1px;background:var(--blue);margin-bottom:16px;}
+.lcard-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:14px;line-height:1.2;}
+.lcard-desc{font-size:13px;font-weight:300;color:var(--stone);line-height:1.7;}
+.team{padding:96px 64px;background:var(--cream-dark);}
+.team-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.team-img{background:var(--blue-light);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.team-img-icon{font-size:80px;opacity:0.15;}
+.team-img-caption{position:absolute;bottom:0;left:0;right:0;background:var(--white);padding:20px 24px;}
+.team-img-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:600;color:var(--ink);}
+.team-img-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--stone);text-transform:uppercase;margin-top:4px;}
+.team-text p{font-size:15px;font-weight:300;color:var(--stone);line-height:1.9;margin-bottom:20px;}
+.team-text strong{color:var(--ink);font-weight:500;}
+.qual{padding:16px 0;border-bottom:1px solid var(--sand);display:flex;align-items:baseline;gap:16px;}
+.qual:first-child{border-top:1px solid var(--sand);}
+.qual-year{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--blue);letter-spacing:1px;min-width:48px;}
+.qual-text{font-size:13px;font-weight:300;color:var(--stone);}
+.kontakt{padding:96px 64px;background:var(--white);}
+.kontakt-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+.kontakt-left p{font-size:15px;font-weight:300;color:var(--stone);line-height:1.8;margin-bottom:40px;margin-top:24px;}
+.kd{padding:18px 0;border-bottom:1px solid var(--sand);display:flex;gap:20px;align-items:flex-start;}
+.kd:first-child{border-top:1px solid var(--sand);}
+.kd-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.kd-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--stone);text-transform:uppercase;margin-bottom:4px;}
+.kd-val{font-size:14px;font-weight:300;color:var(--ink);}
+.form{display:flex;flex-direction:column;gap:20px;}
+.flabel{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--stone);text-transform:uppercase;display:block;margin-bottom:6px;}
+.finput,.ftextarea{background:var(--cream);border:1px solid var(--sand);color:var(--ink);padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;outline:none;width:100%;}
+.finput:focus,.ftextarea:focus{border-color:var(--blue);background:var(--white);}
+.ftextarea{resize:vertical;min-height:120px;}
+.finput::placeholder,.ftextarea::placeholder{color:var(--stone);opacity:0.6;}
+.fbtn{font-size:13px;font-weight:500;letter-spacing:0.5px;background:var(--blue);color:var(--white);padding:14px 32px;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;}
+.fbtn::after{content:'→';font-size:16px;}
+.dsgvo-note{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--stone);line-height:1.6;margin-top:8px;}
+footer{background:var(--deep);padding:48px 64px;}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:300;color:var(--white);margin-bottom:4px;}
+.footer-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--stone);text-transform:uppercase;}
+.footer-col h4{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--stone);text-transform:uppercase;margin-bottom:16px;}
+.footer-col p,.footer-col a{font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.8;text-decoration:none;display:block;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--stone);}
+.netvar{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(140,130,120,0.4);}
+.netvar a{color:rgba(140,130,120,0.5);text-decoration:none;}
+@media(max-width:768px){nav{padding:0 24px;}.nav-links{display:none;}.hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:48px 24px;}.leistungen,.team,.kontakt{padding:64px 24px;}.leistungen-grid{grid-template-columns:1fr;}.team-inner,.kontakt-inner{grid-template-columns:1fr;gap:48px;}footer{padding:40px 24px;}.footer-top{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div><div class="nav-logo-main">Dr. med. dent. Kellner</div><div class="nav-logo-sub">Zahnarztpraxis · Göttingen</div></div>
+  <ul class="nav-links"><li><a href="#leistungen">Leistungen</a></li><li><a href="#praxis">Über die Praxis</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+  <a href="#kontakt" class="nav-appt">Termin vereinbaren</a>
+</nav>
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Zahnarztpraxis · Göttingen</div>
+    <h1 class="hero-h1">Gesunde<br/><strong>Zähne.</strong><br/><em>Ein Leben lang.</em></h1>
+    <p class="hero-sub-title">Moderne Zahnmedizin<br/>mit persönlicher Betreuung.</p>
+    <p class="hero-desc">Wir verbinden modernste Behandlungsmethoden mit einer ruhigen, vertrauensvollen Atmosphäre — damit Sie sich bei uns von Anfang an wohl fühlen.</p>
+    <a href="#kontakt" class="btn-primary">Termin vereinbaren</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-circle"></div><div class="hero-right-circle2"></div>
+    <div class="hero-icon-center">🦷</div>
+    <div class="hero-info-panel">
+      <div class="hip-item"><span class="hip-label">Öffnungszeiten Mo–Do</span><span class="hip-val">8:00 – 18:00 Uhr</span></div>
+      <div class="hip-item"><span class="hip-label">Freitag</span><span class="hip-val">8:00 – 14:00 Uhr</span></div>
+      <div class="hip-item"><span class="hip-label">Telefon</span><span class="hip-val">0551 — 234 567 8</span></div>
+      <div class="hip-item"><span class="hip-label">Kassenpatienten</span><span class="hip-val">Herzlich willkommen</span></div>
+    </div>
+  </div>
+</div>
+<section class="leistungen" id="leistungen">
+  <div class="sec-eyebrow">Leistungen</div>
+  <h2 class="sec-title">Was wir<br/><em>für Sie tun.</em></h2>
+  <div class="leistungen-grid">
+    <div class="lcard"><div class="lcard-num">01</div><div class="lcard-line"></div><div class="lcard-title">Prophylaxe & Vorsorge</div><div class="lcard-desc">Professionelle Zahnreinigung, Kariesvorsorge und individuelle Beratung zur Mundhygiene.</div></div>
+    <div class="lcard"><div class="lcard-num">02</div><div class="lcard-line"></div><div class="lcard-title">Zahnersatz</div><div class="lcard-desc">Kronen, Brücken und Prothesen in höchster Qualität. Gemeinsam finden wir die Lösung, die zu Ihnen passt.</div></div>
+    <div class="lcard"><div class="lcard-num">03</div><div class="lcard-line"></div><div class="lcard-title">Implantologie</div><div class="lcard-desc">Zahnimplantate als dauerhafte Alternative zu herausnehmbarem Zahnersatz.</div></div>
+    <div class="lcard"><div class="lcard-num">04</div><div class="lcard-line"></div><div class="lcard-title">Ästhetische Zahnmedizin</div><div class="lcard-desc">Bleaching, Veneers und Zahnformkorrekturen. Für ein Lächeln, das zu Ihnen passt.</div></div>
+    <div class="lcard"><div class="lcard-num">05</div><div class="lcard-line"></div><div class="lcard-title">Kinderzahnheilkunde</div><div class="lcard-desc">Einfühlsame Behandlung von Kindern und Jugendlichen. Wir schaffen positive erste Erfahrungen.</div></div>
+    <div class="lcard"><div class="lcard-num">06</div><div class="lcard-line"></div><div class="lcard-title">Angstpatienten</div><div class="lcard-desc">Zahnarztangst ist weit verbreitet. Wir nehmen uns Zeit und arbeiten in Ihrem Tempo.</div></div>
+  </div>
+</section>
+<section class="team" id="praxis">
+  <div class="team-inner">
+    <div class="team-img"><div class="team-img-icon">👩‍⚕️</div><div class="team-img-caption"><div class="team-img-name">Dr. med. dent. Anna Kellner</div><div class="team-img-title">Zahnärztin · Inhaberin</div></div></div>
+    <div class="team-text">
+      <div class="sec-eyebrow" style="margin-bottom:16px;">Über die Praxis</div>
+      <h2 class="sec-title" style="margin-bottom:24px;">Vertrauen<br/><em>durch Erfahrung.</em></h2>
+      <p>Seit über 15 Jahren betreue ich Patientinnen und Patienten in Göttingen mit Sorgfalt und Fachwissen. Mein Anspruch ist es, <strong>Zahnmedizin auf höchstem Niveau</strong> mit echter menschlicher Zuwendung zu verbinden.</p>
+      <p>In unserer Praxis nehmen wir uns Zeit für Sie — für Ihre Fragen, Ihre Bedenken und Ihre individuelle Situation.</p>
+      <div style="margin-top:32px;">
+        <div class="qual"><span class="qual-year">2005</span><span class="qual-text">Approbation, Universität Göttingen</span></div>
+        <div class="qual"><span class="qual-year">2008</span><span class="qual-text">Promotion — Dr. med. dent.</span></div>
+        <div class="qual"><span class="qual-year">2012</span><span class="qual-text">Zertifikat Implantologie, DGI</span></div>
+        <div class="qual"><span class="qual-year">2018</span><span class="qual-text">Fortbildung Angstpatienten, DGZMK</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="kontakt" id="kontakt">
+  <div class="sec-eyebrow">Kontakt</div>
+  <h2 class="sec-title">Termin<br/><em>vereinbaren.</em></h2>
+  <div class="kontakt-inner">
+    <div class="kontakt-left">
+      <p>Rufen Sie uns an oder schreiben Sie uns — wir antworten innerhalb eines Werktages und finden gemeinsam einen passenden Termin.</p>
+      <div>
+        <div class="kd"><div class="kd-icon">📍</div><div><div class="kd-label">Adresse</div><div class="kd-val">Groner Straße 22, 37073 Göttingen</div></div></div>
+        <div class="kd"><div class="kd-icon">📞</div><div><div class="kd-label">Telefon</div><div class="kd-val">0551 — 234 567 8</div></div></div>
+        <div class="kd"><div class="kd-icon">✉️</div><div><div class="kd-label">E-Mail</div><div class="kd-val">praxis@dr-kellner.de</div></div></div>
+        <div class="kd"><div class="kd-icon">🕐</div><div><div class="kd-label">Öffnungszeiten</div><div class="kd-val">Mo–Do 8–18 Uhr · Fr 8–14 Uhr</div></div></div>
+      </div>
+    </div>
+    <div class="form">
+      <div><label class="flabel">Ihr Name</label><input type="text" class="finput" placeholder="Vor- und Nachname"></div>
+      <div><label class="flabel">Telefon</label><input type="tel" class="finput" placeholder="Ihre Rufnummer"></div>
+      <div><label class="flabel">Anliegen</label><textarea class="ftextarea" placeholder="Womit können wir Ihnen helfen? (optional)"></textarea></div>
+      <button class="fbtn">Termin anfragen</button>
+      <p class="dsgvo-note">Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.</p>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-name">Dr. med. dent. Anna Kellner</div><div class="footer-sub">Zahnarztpraxis · Göttingen</div></div>
+    <div class="footer-col"><h4>Kontakt</h4><p>Groner Straße 22<br/>37073 Göttingen</p><a href="tel:+495512345678">0551 — 234 567 8</a><a href="mailto:praxis@dr-kellner.de">praxis@dr-kellner.de</a></div>
+    <div class="footer-col"><h4>Rechtliches</h4><a href="#">Impressum</a><a href="#">Datenschutzerklärung</a><a href="#">Barrierefreiheit</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Zahnarztpraxis Dr. Kellner — Göttingen</span>
+    <span class="netvar">Website von <a href="https://netvarstudio.de">Netvar Studio</a></span>
+  </div>
+</footer>
+</body>
+</html>
