@@ -1,0 +1,165 @@
+---
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  withSchema?: boolean;
+}
+
+const { title, description, withSchema = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const home = Astro.url.pathname === '/';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  name: 'Zahnarztpraxis Dr. med. dent. Anna Kellner',
+  url: Astro.site?.toString(),
+  telephone: '+49 551 2345678',
+  email: 'praxis@dr-kellner.de',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Groner Straße 22',
+    postalCode: '37073',
+    addressLocality: 'Göttingen',
+    addressCountry: 'DE',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+      opens: '08:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Friday',
+      opens: '08:00',
+      closes: '14:00',
+    },
+  ],
+  priceRange: '€€',
+};
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#f7f5f1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Zahnarztpraxis Dr. Kellner" />
+    {withSchema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body class="min-h-dvh bg-paper text-ink">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:border focus:border-accent focus:bg-paper focus:px-3 focus:py-2 focus:text-sm"
+    >
+      Zum Inhalt springen
+    </a>
+
+    <header class="sticky top-0 z-40 border-b border-line bg-paper/92 backdrop-blur-sm">
+      <div class="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 lg:border-x lg:border-line lg:px-8">
+        <a href={home ? '#top' : '/'} class="flex flex-col leading-tight no-underline" aria-label="Zahnarztpraxis Dr. Kellner, Startseite">
+          <span class="font-serif text-lg text-ink whitespace-nowrap" style="font-variation-settings: 'opsz' 24">
+            <span class="sm:hidden">Dr. Anna Kellner</span>
+            <span class="hidden sm:inline">Dr. med. dent. Anna Kellner</span>
+          </span>
+          <span class="kicker hidden text-[0.6875rem] sm:block">Zahnarztpraxis, Göttingen</span>
+        </a>
+        {home && (
+          <nav aria-label="Seitenbereiche" class="hidden lg:block">
+            <ul class="flex gap-7 text-sm">
+              <li><a href="#leistungen" class="nav-link">Leistungen</a></li>
+              <li><a href="#praxis" class="nav-link">Praxis</a></li>
+              <li><a href="#angst" class="nav-link">Angstpatienten</a></li>
+              <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+            </ul>
+          </nav>
+        )}
+        <div class="flex items-center gap-4">
+          <a href="tel:+495512345678" class="nav-link hidden text-sm tabular-nums md:inline">0551 234 567 8</a>
+          <a href={home ? '#kontakt' : '/#kontakt'} class="btn px-4 py-2.5 text-sm">Termin vereinbaren</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="border-t border-line">
+      <div class="mx-auto max-w-[1280px] lg:border-x lg:border-line">
+        <div class="grid grid-cols-1 lg:grid-cols-12">
+          <div class="px-4 py-10 lg:col-span-5 lg:px-8 lg:py-12">
+            <p class="font-serif text-xl" style="font-variation-settings: 'opsz' 24">Dr. med. dent. Anna Kellner</p>
+            <p class="kicker mt-1">Zahnarztpraxis, Göttingen</p>
+            <address class="mt-6 text-sm text-ink-2 not-italic leading-relaxed">
+              Groner Straße 22<br />37073 Göttingen<br />
+              <a href="tel:+495512345678" class="nav-link tabular-nums">0551 234 567 8</a><br />
+              <a href="mailto:praxis@dr-kellner.de" class="nav-link">praxis@dr-kellner.de</a>
+            </address>
+          </div>
+          <div class="border-t border-line px-4 py-10 lg:col-span-3 lg:border-t-0 lg:border-l lg:px-8 lg:py-12">
+            <p class="kicker">Rechtliches</p>
+            <ul class="mt-4 flex flex-col gap-2 text-sm">
+              <li><a href="/impressum" class="nav-link">Impressum</a></li>
+              <li><a href="/datenschutz" class="nav-link">Datenschutzerklärung</a></li>
+            </ul>
+          </div>
+          <div class="border-t border-line px-4 py-10 lg:col-span-4 lg:border-t-0 lg:border-l lg:px-8 lg:py-12">
+            <p class="kicker">Barrierefreiheit</p>
+            <p class="mt-4 text-sm text-ink-2 leading-relaxed">
+              Diese Website ist per Tastatur bedienbar, nutzt Kontraste nach WCAG AA und verzichtet auf Bewegung, wenn
+              Ihr Gerät reduzierte Animation wünscht. Die Praxis liegt im Erdgeschoss und ist stufenlos erreichbar.
+              Hinweise zu Barrieren nehmen wir gern per E-Mail entgegen.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 border-t border-line px-4 py-5 text-xs text-ink-2 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+          <span>© 2026 Zahnarztpraxis Dr. Kellner, Göttingen</span>
+          <span>
+            Demo-Website von <a href="https://www.netvarstudio.de" class="link">Netvar Studio</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const items = document.querySelectorAll<HTMLElement>('.reveal');
+      if (reduce || !('IntersectionObserver' in window)) {
+        for (const el of items) el.classList.add('is-in');
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-in');
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.1 },
+        );
+        for (const el of items) io.observe(el);
+      }
+    </script>
+  </body>
+</html>

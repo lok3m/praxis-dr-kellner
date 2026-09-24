@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://praxis-dr-kellner.vercel.app/sitemap.xml

@@ -1,0 +1,420 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    n: '01',
+    title: 'Prophylaxe',
+    text: 'Professionelle Zahnreinigung, Kariesvorsorge und Beratung zur Mundhygiene. Empfohlen zweimal im Jahr, mit Eintrag ins Bonusheft.',
+  },
+  {
+    n: '02',
+    title: 'Zahnersatz',
+    text: 'Kronen, Brücken und Prothesen aus einem Meisterlabor in Göttingen. Varianten und Kosten besprechen wir, bevor der Heil- und Kostenplan entsteht.',
+  },
+  {
+    n: '03',
+    title: 'Implantologie',
+    text: 'Zahnimplantate als festsitzende Alternative zu herausnehmbarem Zahnersatz. Planung mit digitalem Röntgen, Eingriff in der Praxis.',
+  },
+  {
+    n: '04',
+    title: 'Ästhetische Zahnmedizin',
+    text: 'Bleaching, Veneers und Formkorrekturen. Vorher zeigen wir Ihnen, was möglich ist und was wir davon empfehlen.',
+  },
+  {
+    n: '05',
+    title: 'Kinderzahnheilkunde',
+    text: 'Erste Besuche ohne Behandlung, altersgerechte Erklärungen und Prophylaxe ab dem ersten Zahn.',
+  },
+  {
+    n: '06',
+    title: 'Angstpatienten',
+    text: 'Behandlung in Ihrem Tempo, mit vereinbartem Stopp-Zeichen und mehr Zeit pro Termin.',
+    href: '#angst',
+  },
+];
+
+const timeline = [
+  { year: '2005', text: 'Approbation als Zahnärztin, Universität Göttingen' },
+  { year: '2008', text: 'Promotion zur Dr. med. dent.' },
+  {
+    year: '2012',
+    text: 'Zertifikat Implantologie, Deutsche Gesellschaft für Implantologie (DGI)',
+  },
+  { year: '2018', text: 'Fortbildung Behandlung von Angstpatienten, DGZMK' },
+];
+
+const angst = [
+  {
+    n: '01',
+    title: 'Erstgespräch ohne Behandlung',
+    text: 'Sie lernen Praxis und Team kennen, wir hören zu. Der Behandlungsstuhl bleibt an diesem Tag aus.',
+  },
+  {
+    n: '02',
+    title: 'Vereinbartes Stopp-Zeichen',
+    text: 'Sie heben die Hand, wir unterbrechen. Jedes Mal, ohne Nachfrage.',
+  },
+  {
+    n: '03',
+    title: 'Kurze Sitzungen, feste Termine',
+    text: 'Wir planen kleine Schritte und erklären jeden davon, bevor er passiert.',
+  },
+];
+
+const contact = [
+  { label: 'Adresse', value: 'Groner Straße 22, 37073 Göttingen' },
+  { label: 'Telefon', value: '0551 234 567 8', href: 'tel:+495512345678' },
+  {
+    label: 'E-Mail',
+    value: 'praxis@dr-kellner.de',
+    href: 'mailto:praxis@dr-kellner.de',
+  },
+  {
+    label: 'Sprechzeiten',
+    value: 'Mo bis Do 8:00 bis 18:00 Uhr, Fr 8:00 bis 14:00 Uhr',
+  },
+  {
+    label: 'Anfahrt',
+    value:
+      'Parkhaus Groner Tor, drei Minuten zu Fuß. Bushaltestelle Groner Tor direkt vor der Tür.',
+  },
+];
+---
+
+<Layout
+  title="Zahnarztpraxis Dr. Kellner, Göttingen"
+  description="Zahnarztpraxis Dr. med. dent. Anna Kellner in der Göttinger Innenstadt: Prophylaxe, Zahnersatz, Implantologie, Kinderzahnheilkunde und Behandlung von Angstpatienten. Kassen- und Privatpatienten. Termin unter 0551 234 567 8."
+  withSchema
+>
+  <div class="mx-auto max-w-[1280px] lg:border-x lg:border-line">
+    <!-- Hero -->
+    <section id="top" aria-labelledby="hero-h" class="grid grid-cols-1 lg:grid-cols-12">
+      <div class="bg-paper px-4 py-14 sm:px-8 lg:col-span-7 lg:py-24 lg:pr-16">
+        <p class="kicker">Zahnarztpraxis, Göttingen Innenstadt</p>
+        <h1 id="hero-h" class="mt-6 text-[2.5rem] leading-[1.04] sm:text-5xl lg:text-[4.25rem]">
+          Gute Zahnmedizin beginnt mit Zuhören.
+        </h1>
+        <p class="measure mt-7 text-lg text-ink-2 leading-relaxed">
+          Dr. med. dent. Anna Kellner und ihr Team betreuen Sie seit über 15 Jahren in der Groner Straße: von der
+          Prophylaxe bis zum Implantat, für Kassen- und Privatpatienten.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          <a href="#kontakt" class="btn">Termin vereinbaren</a>
+          <a href="tel:+495512345678" class="btn btn-ghost tabular-nums">0551 234 567 8</a>
+        </div>
+      </div>
+
+      <aside
+        aria-labelledby="glance-h"
+        class="grid-bg border-t border-line px-4 py-8 sm:px-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:py-10"
+      >
+        <div class="border border-line bg-paper">
+          <div class="flex items-baseline justify-between border-b border-line px-5 py-3">
+            <h2 id="glance-h" class="kicker text-ink">Auf einen Blick</h2>
+            <span class="kicker">Göttingen</span>
+          </div>
+          <dl class="text-[0.9375rem]">
+            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-line px-5 py-3.5">
+              <dt class="kicker pt-0.5">Sprechzeiten</dt>
+              <dd class="tabular-nums">
+                Mo bis Do <span class="text-ink-2">8:00 bis 18:00</span><br />
+                Freitag <span class="text-ink-2">8:00 bis 14:00</span>
+              </dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-line px-5 py-3.5">
+              <dt class="kicker pt-0.5">Telefon</dt>
+              <dd>
+                <a href="tel:+495512345678" class="link tabular-nums">0551 234 567 8</a>
+              </dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-line px-5 py-3.5">
+              <dt class="kicker pt-0.5">Versicherung</dt>
+              <dd>Kassen- und Privatpatienten</dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-line px-5 py-3.5">
+              <dt class="kicker pt-0.5">Adresse</dt>
+              <dd>Groner Straße 22<br />37073 Göttingen</dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-line px-5 py-3.5">
+              <dt class="kicker pt-0.5">Zugang</dt>
+              <dd class="text-ink-2">Erdgeschoss, stufenlos. Parkhaus Groner Tor, drei Minuten zu Fuß.</dd>
+            </div>
+            <div class="grid grid-cols-[6.5rem_1fr] gap-4 px-5 py-3.5">
+              <dt class="kicker pt-0.5">Schmerzen</dt>
+              <dd class="text-ink-2">Rufen Sie an. Wir halten jeden Tag Zeiten für Schmerzpatienten frei.</dd>
+            </div>
+          </dl>
+        </div>
+      </aside>
+    </section>
+
+    <div class="grid-bg h-10 border-t border-line" aria-hidden="true"></div>
+
+    <!-- 01 Leistungen -->
+    <section id="leistungen" aria-labelledby="leistungen-h" class="border-t border-line">
+      <div class="flex items-baseline justify-between border-b border-line px-4 py-4 sm:px-8">
+        <p class="kicker"><span class="text-accent">01</span>&nbsp;&nbsp;Leistungen</p>
+        <p class="kicker hidden sm:block">Sechs Bereiche</p>
+      </div>
+      <div class="px-4 py-10 sm:px-8 lg:py-14">
+        <h2 id="leistungen-h" class="text-3xl leading-tight sm:text-4xl lg:text-5xl">Was wir für Sie tun.</h2>
+        <p class="measure mt-4 text-ink-2">
+          Sie erfahren vorher, was wir tun, warum wir es empfehlen und was es kostet.
+        </p>
+      </div>
+      <ol class="grid grid-cols-1 border-t border-line lg:grid-cols-2">
+        {
+          services.map((s, i) => (
+            <li
+              class:list={[
+                'reveal border-b border-line px-4 py-7 sm:px-8',
+                i % 2 === 1 && 'lg:border-l',
+                i >= services.length - 2 && 'lg:border-b-0',
+                i === services.length - 1 && 'border-b-0',
+              ]}
+            >
+              <div class="grid grid-cols-[3rem_1fr] gap-4">
+                <span class="kicker pt-1.5 text-accent">{s.n}</span>
+                <div>
+                  <h3 class="text-2xl">{s.title}</h3>
+                  <p class="measure mt-2 text-ink-2">{s.text}</p>
+                  {s.href && (
+                    <a href={s.href} class="link mt-3 inline-block text-sm">
+                      Wie wir vorgehen
+                    </a>
+                  )}
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <div class="grid-bg h-10 border-t border-line" aria-hidden="true"></div>
+
+    <!-- 02 Über die Praxis -->
+    <section id="praxis" aria-labelledby="praxis-h" class="border-t border-line">
+      <div class="flex items-baseline justify-between border-b border-line px-4 py-4 sm:px-8">
+        <p class="kicker"><span class="text-accent">02</span>&nbsp;&nbsp;Über die Praxis</p>
+        <p class="kicker hidden sm:block">Seit 2005 in Göttingen</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12">
+        <div class="px-4 py-10 sm:px-8 lg:col-span-7 lg:py-14 lg:pr-16">
+          <h2 id="praxis-h" class="text-3xl leading-tight sm:text-4xl lg:text-5xl">Eine Ärztin, ein Team, Zeit für Fragen.</h2>
+          <div class="measure mt-6 flex flex-col gap-4 text-ink-2">
+            <p>
+              Anna Kellner hat in Göttingen studiert und behandelt seit 2005 in der Stadt. Die Praxis in der Groner
+              Straße führt sie seit 2011, gemeinsam mit zwei zahnmedizinischen Fachangestellten und einer
+              Prophylaxe-Assistentin.
+            </p>
+            <p>
+              Sie werden hier immer von derselben Zahnärztin behandelt. Befunde erklären wir am Bildschirm, Kosten
+              stehen vor der Behandlung fest, und ein Termin ist so lang, wie er sein muss.
+            </p>
+            <p>
+              Ausstattung: digitales Röntgen mit geringer Strahlendosis, Aufbereitung der Instrumente nach
+              RKI-Empfehlung, drei Behandlungszimmer im Erdgeschoss.
+            </p>
+          </div>
+        </div>
+        <div class="reveal border-t border-line px-4 py-10 sm:px-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:py-14">
+          <p class="kicker">Werdegang</p>
+          <ol class="mt-6 ml-1 border-l border-line">
+            {
+              timeline.map((t) => (
+                <li class="relative pb-8 pl-6 last:pb-0">
+                  <span class="absolute top-2 -left-[4px] block h-[7px] w-[7px] bg-accent" aria-hidden="true" />
+                  <span class="kicker block text-accent">{t.year}</span>
+                  <span class="mt-1 block text-[0.9375rem] leading-snug">{t.text}</span>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid-bg h-10 border-t border-line" aria-hidden="true"></div>
+
+    <!-- 03 Angstpatienten -->
+    <section id="angst" aria-labelledby="angst-h" class="border-t border-line bg-paper-2">
+      <div class="flex items-baseline justify-between border-b border-line px-4 py-4 sm:px-8">
+        <p class="kicker"><span class="text-accent">03</span>&nbsp;&nbsp;Angstpatienten</p>
+        <p class="kicker hidden sm:block">Ohne Druck</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12">
+        <div class="px-4 py-10 sm:px-8 lg:col-span-5 lg:py-14 lg:pr-12">
+          <h2 id="angst-h" class="text-3xl leading-tight sm:text-4xl lg:text-5xl">Wenn der Zahnarztbesuch schwerfällt.</h2>
+          <p class="measure mt-6 text-ink-2">
+            Zahnbehandlungsangst ist häufig und kein Grund für Scham. Wir nehmen sie ernst und richten den Ablauf
+            danach aus. Sagen Sie bei der Terminanfrage einfach „Angstpatient“, dann planen wir mehr Zeit ein.
+          </p>
+        </div>
+        <ol class="border-t border-line lg:col-span-7 lg:border-t-0 lg:border-l">
+          {
+            angst.map((a, i) => (
+              <li
+                class:list={[
+                  'reveal grid grid-cols-[3rem_1fr] gap-4 px-4 py-7 sm:px-8',
+                  i < angst.length - 1 && 'border-b border-line',
+                ]}
+              >
+                <span class="kicker pt-1.5 text-accent">{a.n}</span>
+                <div>
+                  <h3 class="text-2xl">{a.title}</h3>
+                  <p class="measure mt-2 text-ink-2">{a.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <div class="grid-bg h-10 border-t border-line" aria-hidden="true"></div>
+
+    <!-- 04 Kontakt -->
+    <section id="kontakt" aria-labelledby="kontakt-h" class="border-t border-line">
+      <div class="flex items-baseline justify-between border-b border-line px-4 py-4 sm:px-8">
+        <p class="kicker"><span class="text-accent">04</span>&nbsp;&nbsp;Kontakt</p>
+        <p class="kicker hidden sm:block">Antwort innerhalb eines Werktages</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12">
+        <div class="px-4 py-10 sm:px-8 lg:col-span-5 lg:py-14 lg:pr-12">
+          <h2 id="kontakt-h" class="text-3xl leading-tight sm:text-4xl lg:text-5xl">Termin vereinbaren.</h2>
+          <p class="measure mt-6 text-ink-2">
+            Rufen Sie an oder nutzen Sie das Formular. Wir melden uns innerhalb eines Werktages mit einem
+            Terminvorschlag.
+          </p>
+          <dl class="mt-8 border-t border-line text-[0.9375rem]">
+            {
+              contact.map((c) => (
+                <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-line py-3.5">
+                  <dt class="kicker pt-0.5">{c.label}</dt>
+                  <dd>
+                    {c.href ? (
+                      <a href={c.href} class="link tabular-nums">
+                        {c.value}
+                      </a>
+                    ) : (
+                      c.value
+                    )}
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+
+        <div class="border-t border-line px-4 py-10 sm:px-8 lg:col-span-7 lg:border-t-0 lg:border-l lg:py-14">
+          <form id="termin-form" class="grid grid-cols-1 gap-5 sm:grid-cols-2" novalidate>
+            <div class="flex flex-col gap-1.5">
+              <label for="f-name" class="text-sm font-medium">Name <span class="text-ink-2 font-normal">(Pflichtfeld)</span></label>
+              <input id="f-name" name="name" type="text" class="field" required autocomplete="name" />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label for="f-phone" class="text-sm font-medium">Telefon <span class="text-ink-2 font-normal">(Pflichtfeld)</span></label>
+              <input id="f-phone" name="phone" type="tel" class="field" required autocomplete="tel" />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label for="f-email" class="text-sm font-medium">E-Mail <span class="text-ink-2 font-normal">(optional)</span></label>
+              <input id="f-email" name="email" type="email" class="field" autocomplete="email" />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label for="f-topic" class="text-sm font-medium">Anliegen</label>
+              <select id="f-topic" name="topic" class="field">
+                <option value="Kontrolle oder Prophylaxe">Kontrolle oder Prophylaxe</option>
+                <option value="Schmerzen">Schmerzen</option>
+                <option value="Zahnersatz oder Implantat">Zahnersatz oder Implantat</option>
+                <option value="Kinderzahnheilkunde">Kinderzahnheilkunde</option>
+                <option value="Angstpatient">Angstpatient</option>
+                <option value="Sonstiges">Sonstiges</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-1.5 sm:col-span-2">
+              <label for="f-message" class="text-sm font-medium">Nachricht <span class="text-ink-2 font-normal">(optional)</span></label>
+              <textarea id="f-message" name="message" rows="4" class="field resize-y"></textarea>
+              <p class="text-xs text-ink-2">Bitte keine Diagnosen oder Befunde eintragen. Das besprechen wir in der Praxis.</p>
+            </div>
+            <div class="visually-hidden" aria-hidden="true">
+              <label for="company_url">Firmen-Website</label>
+              <input id="company_url" name="company_url" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <p id="form-error" class="hidden text-sm text-accent-deep sm:col-span-2" role="alert"></p>
+            <div class="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center sm:gap-5">
+              <button type="submit" class="btn">Terminanfrage senden</button>
+              <p class="text-xs text-ink-2">
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben laut
+                <a href="/datenschutz" class="link">Datenschutzerklärung</a> zu.
+              </p>
+            </div>
+          </form>
+          <div id="form-success" role="status" aria-live="polite" class="hidden border border-line bg-paper-2 p-6"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('termin-form') as HTMLFormElement | null;
+  const success = document.getElementById('form-success');
+  const error = document.getElementById('form-error');
+
+  if (form && success && error) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const data = new FormData(form);
+      const get = (k: string) => String(data.get(k) ?? '').trim();
+
+      if (get('company_url') !== '') return;
+
+      const missing: string[] = [];
+      if (!get('name')) missing.push('Name');
+      if (!get('phone')) missing.push('Telefon');
+      if (missing.length > 0) {
+        error.textContent = `Bitte ergänzen Sie: ${missing.join(', ')}.`;
+        error.classList.remove('hidden');
+        (form.querySelector(missing[0] === 'Name' ? '#f-name' : '#f-phone') as HTMLElement | null)?.focus();
+        return;
+      }
+      error.classList.add('hidden');
+
+      const name = get('name');
+      const lines = [
+        `Name: ${name}`,
+        `Telefon: ${get('phone')}`,
+        `E-Mail: ${get('email') || 'keine Angabe'}`,
+        `Anliegen: ${get('topic')}`,
+        '',
+        get('message'),
+      ];
+      const mailto = `mailto:praxis@dr-kellner.de?subject=${encodeURIComponent(
+        'Terminanfrage über die Website',
+      )}&body=${encodeURIComponent(lines.join('\n'))}`;
+
+      success.innerHTML = '';
+      const h = document.createElement('p');
+      h.className = 'font-serif text-2xl';
+      h.textContent = `Danke, ${name}.`;
+      const p = document.createElement('p');
+      p.className = 'mt-3 text-ink-2';
+      p.textContent =
+        'Das ist eine Demo: in der echten Website landet die Anfrage per E-Mail bei der Praxis, und Sie erhalten innerhalb eines Werktages einen Terminvorschlag.';
+      const a = document.createElement('a');
+      a.className = 'link mt-4 inline-block text-sm';
+      a.href = mailto;
+      a.textContent = 'Anfrage stattdessen per E-Mail-Programm senden';
+      success.append(h, p, a);
+
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+      success.setAttribute('tabindex', '-1');
+      success.focus();
+    });
+  }
+</script>
